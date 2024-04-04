@@ -1,9 +1,11 @@
+import { Interactor } from "./components/EmulatedWebs/Interactor";
 import { Menu } from "./components/Menu";
 
 function App() {
   return (
-    <div> 
-      <Menu />
+    <div>
+      <Interactor />
+      {/* <Menu />  */}
     </div>
   );
 }

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fivesheep-fe/static/css/main.6360a430.css",
+    "main.js": "/fivesheep-fe/static/js/main.5cd9ed08.js",
+    "index.html": "/fivesheep-fe/index.html",
+    "main.6360a430.css.map": "/fivesheep-fe/static/css/main.6360a430.css.map",
+    "main.5cd9ed08.js.map": "/fivesheep-fe/static/js/main.5cd9ed08.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6360a430.css",
+    "static/js/main.5cd9ed08.js"
+  ]
+}

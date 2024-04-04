@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/fivesheep-fe/static/css/main.6360a430.css",
-    "main.js": "/fivesheep-fe/static/js/main.5cd9ed08.js",
+    "main.css": "/fivesheep-fe/static/css/main.ee3dd8ca.css",
+    "main.js": "/fivesheep-fe/static/js/main.a19574f0.js",
+    "static/js/952.4af2eb2f.chunk.js": "/fivesheep-fe/static/js/952.4af2eb2f.chunk.js",
     "index.html": "/fivesheep-fe/index.html",
-    "main.6360a430.css.map": "/fivesheep-fe/static/css/main.6360a430.css.map",
-    "main.5cd9ed08.js.map": "/fivesheep-fe/static/js/main.5cd9ed08.js.map"
+    "main.ee3dd8ca.css.map": "/fivesheep-fe/static/css/main.ee3dd8ca.css.map",
+    "main.a19574f0.js.map": "/fivesheep-fe/static/js/main.a19574f0.js.map",
+    "952.4af2eb2f.chunk.js.map": "/fivesheep-fe/static/js/952.4af2eb2f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6360a430.css",
-    "static/js/main.5cd9ed08.js"
+    "static/css/main.ee3dd8ca.css",
+    "static/js/main.a19574f0.js"
   ]
 }

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { supabase } from "../helper/supabase";
 
 const libraryData = [
   { id: 1, title: "Library Item 1" },
@@ -17,9 +18,25 @@ const communityData = [
 ];
 
 const Header = () => {
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event == "SIGNED_IN") {
+      alert("Đăng nhập thành công");
+    }
+  });
+  const signInGG = async () => {
+    console.log((await supabase.auth.getSession()).data.session);
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+    });
+    console.log((await supabase.auth.getSession()).data.session);
+  };
   return (
     <header className="flex gap-5 justify-between items-start self-center w-full font-bold text-center max-w-[1322px] max-md:flex-wrap max-md:max-w-full">
-      <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/16f46386ea1ac5f8fc69acd2503c44b051a9fe3b3579a6b844a57ef096555504?apiKey=c7cedd2849df4eb1b7f55f128f5c00ae&" alt="Logo" className="shrink-0 w-6 aspect-square" />
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/16f46386ea1ac5f8fc69acd2503c44b051a9fe3b3579a6b844a57ef096555504?apiKey=c7cedd2849df4eb1b7f55f128f5c00ae&"
+        alt="Logo"
+        className="shrink-0 w-6 aspect-square"
+      />
       <nav className="flex gap-5 max-md:flex-wrap">
         <div className="flex flex-auto gap-5 justify-between self-start px-5 text-2xl text-violet-600 max-md:flex-wrap max-md:max-w-full">
           <a href="#">Lớp học</a>
@@ -27,7 +44,10 @@ const Header = () => {
           <a href="#">Cộng đồng</a>
           <a href="#">Phụ huynh</a>
         </div>
-        <div className="justify-center px-5 py-2.5 text-xs text-white bg-violet-600 rounded-[30px]">
+        <div
+          onClick={signInGG}
+          className="justify-center px-5 py-2.5 text-xs text-white bg-violet-600 rounded-[30px]"
+        >
           Đăng nhập
         </div>
       </nav>
@@ -64,7 +84,11 @@ const ExperienceButton = () => {
   return (
     <div className="flex gap-0 self-center mt-7 max-w-full w-[336px]">
       <div className="flex flex-col justify-center items-center px-9 bg-violet-600 rounded-full border-white border-solid border-[10px] h-[92px] stroke-[10px] w-[92px] max-md:px-5">
-        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/8645c52604ab7ed51f2885d7173f07c57c236f5ab6d07ef6444ca5b843c6e840?apiKey=c7cedd2849df4eb1b7f55f128f5c00ae&" alt="Experience Icon" className="w-6 aspect-square" />
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/8645c52604ab7ed51f2885d7173f07c57c236f5ab6d07ef6444ca5b843c6e840?apiKey=c7cedd2849df4eb1b7f55f128f5c00ae&"
+          alt="Experience Icon"
+          className="w-6 aspect-square"
+        />
       </div>
       <button className="grow justify-center items-start self-start px-11 py-3.5 mt-5 text-2xl font-bold text-center text-violet-600 bg-white border border-violet-600 border-solid rounded-[50px] w-fit max-md:px-5">
         Trải nghiệm ngay
@@ -149,7 +173,11 @@ const SignupSection = () => {
                     placeholder="Địa chỉ email"
                     aria-label="Địa chỉ email"
                   />
-                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b928d62d83bbb008808c366e2bc2663bfb7bee2276d15ab4475fb9453c4bd58f?apiKey=c7cedd2849df4eb1b7f55f128f5c00ae&" alt="" className="shrink-0 self-start w-2.5 aspect-square" />
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/b928d62d83bbb008808c366e2bc2663bfb7bee2276d15ab4475fb9453c4bd58f?apiKey=c7cedd2849df4eb1b7f55f128f5c00ae&"
+                    alt=""
+                    className="shrink-0 self-start w-2.5 aspect-square"
+                  />
                 </div>
                 <label htmlFor="phone" className="sr-only">
                   Số điện thoại
@@ -161,7 +189,11 @@ const SignupSection = () => {
                     placeholder="Số điện thoại"
                     aria-label="Số điện thoại"
                   />
-                  <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/43fe10deccae50d5f2faf6b64db90db9e7a22b80454c4e13810d79d31d30f13b?apiKey=c7cedd2849df4eb1b7f55f128f5c00ae&" alt="" className="shrink-0 self-start w-2.5 aspect-square" />
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/43fe10deccae50d5f2faf6b64db90db9e7a22b80454c4e13810d79d31d30f13b?apiKey=c7cedd2849df4eb1b7f55f128f5c00ae&"
+                    alt=""
+                    className="shrink-0 self-start w-2.5 aspect-square"
+                  />
                 </div>
               </form>
             </div>
@@ -172,8 +204,17 @@ const SignupSection = () => {
             <label htmlFor="firstName" className="sr-only">
               Tên
             </label>
-            <input type="text" id="firstName" placeholder="Tên" aria-label="Tên" />
-            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/7704566fedaff45da7656d16a0475724328699e7521b0c832243943de8f35cf2?apiKey=c7cedd2849df4eb1b7f55f128f5c00ae&" alt="" className="shrink-0 self-start w-2.5 aspect-square" />
+            <input
+              type="text"
+              id="firstName"
+              placeholder="Tên"
+              aria-label="Tên"
+            />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/7704566fedaff45da7656d16a0475724328699e7521b0c832243943de8f35cf2?apiKey=c7cedd2849df4eb1b7f55f128f5c00ae&"
+              alt=""
+              className="shrink-0 self-start w-2.5 aspect-square"
+            />
           </div>
         </div>
       </div>
@@ -190,6 +231,9 @@ const Footer = () => {
 };
 
 export function Menu() {
+  React.useEffect(() => {
+    supabase.auth.signOut();
+  }, []);
   return (
     <div className="flex flex-col pt-12 bg-white border border-black border-solid">
       <Header />

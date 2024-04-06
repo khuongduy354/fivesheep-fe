@@ -18,9 +18,19 @@ const communityData = [
 ];
 
 const Header = () => {
+  const [isSignedIn, setIsSignedIn] = React.useState(false);
+  React.useEffect(() => {
+    supabase.auth.getUser().then((res) => {
+      setIsSignedIn(res.data.user ? true : false);
+    });
+  }, []);
   supabase.auth.onAuthStateChange((event, session) => {
     if (event == "SIGNED_IN") {
+      setIsSignedIn(true);
       alert("Đăng nhập thành công");
+    } else if (event == "SIGNED_OUT") {
+      setIsSignedIn(false);
+      alert("Đăng xuật thành công");
     }
   });
   const signInGG = async () => {
@@ -45,10 +55,16 @@ const Header = () => {
           <a href="#">Phụ huynh</a>
         </div>
         <div
-          onClick={signInGG}
+          onClick={async () => {
+            if (isSignedIn) {
+              await supabase.auth.signOut();
+            } else {
+              signInGG();
+            }
+          }}
           className="justify-center px-5 py-2.5 text-xs text-white bg-violet-600 rounded-[30px]"
         >
-          Đăng nhập
+          {isSignedIn ? "Đăng xuất" : "Đăng nhập"}
         </div>
       </nav>
     </header>
@@ -231,9 +247,6 @@ const Footer = () => {
 };
 
 export function Menu() {
-  React.useEffect(() => {
-    supabase.auth.signOut();
-  }, []);
   return (
     <div className="flex flex-col pt-12 bg-white border border-black border-solid">
       <Header />

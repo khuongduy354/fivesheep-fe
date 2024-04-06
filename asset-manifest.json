@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fivesheep-fe/static/css/main.6360a430.css",
-    "main.js": "/fivesheep-fe/static/js/main.ee725baa.js",
+    "main.js": "/fivesheep-fe/static/js/main.a9ad312a.js",
     "static/js/952.4af2eb2f.chunk.js": "/fivesheep-fe/static/js/952.4af2eb2f.chunk.js",
     "index.html": "/fivesheep-fe/index.html",
     "main.6360a430.css.map": "/fivesheep-fe/static/css/main.6360a430.css.map",
-    "main.ee725baa.js.map": "/fivesheep-fe/static/js/main.ee725baa.js.map",
+    "main.a9ad312a.js.map": "/fivesheep-fe/static/js/main.a9ad312a.js.map",
     "952.4af2eb2f.chunk.js.map": "/fivesheep-fe/static/js/952.4af2eb2f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6360a430.css",
-    "static/js/main.ee725baa.js"
+    "static/js/main.a9ad312a.js"
   ]
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Fragment } from "react";
 import { XSSVulWeb } from "./XSSVulWeb";
+import { PhishingFB } from "./PhishingFB";
 
 export const Interactor = () => {
   const [Component, setComponent] = useState(null);
@@ -18,6 +19,7 @@ export const Interactor = () => {
   const bold = "?name=<b>alert(1)</b>";
   return (
     <div className="flex">
+      <PhishingFB />
       <div>{Component && <Component />}</div>
       <div>
         <button

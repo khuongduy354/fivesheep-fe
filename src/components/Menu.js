@@ -24,21 +24,37 @@ const Header = () => {
       setIsSignedIn(res.data.user ? true : false);
     });
   }, []);
-  supabase.auth.onAuthStateChange((event, session) => {
+  supabase.auth.onAuthStateChange(async (event, session) => {
     if (event == "SIGNED_IN") {
       setIsSignedIn(true);
-      alert("Đăng nhập thành công");
+      const user = session.user;
+
+      // const { data } = await supabase.from("User").select().eq("id", user.id);
+      if (true) {
+        const { error } = await supabase.rpc("create_user", {
+          useremail: user.email,
+          userid: user.id,
+        });
+
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("User created successfully");
+        }
+      } else {
+        console.log("User already exists");
+      }
     } else if (event == "SIGNED_OUT") {
       setIsSignedIn(false);
-      alert("Đăng xuật thành công");
     }
   });
   const signInGG = async () => {
-    console.log((await supabase.auth.getSession()).data.session);
     await supabase.auth.signInWithOAuth({
       provider: "google",
+      options: {
+        redirectTo: "http://localhost:3000",
+      },
     });
-    console.log((await supabase.auth.getSession()).data.session);
   };
   return (
     <header className="flex gap-5 justify-between items-start self-center w-full font-bold text-center max-w-[1322px] max-md:flex-wrap max-md:max-w-full">

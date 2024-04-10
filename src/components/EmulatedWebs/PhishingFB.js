@@ -38,7 +38,7 @@ export const PhishingFB = ({ submitCb = null }) => {
             }}
             class="logBtn w-auto py-2 bg-blue-600 my-2 text-2xl text-white rounded-md hover:bg-blue-700 active:bg-blue-800 duration-200"
           >
-            <a href="thanks.html">Log In</a>
+            Log In
           </button>
           <a
             class="my-2 w-auto text-center target text-blue-600 hover:underline"

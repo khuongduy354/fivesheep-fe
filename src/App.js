@@ -1,11 +1,13 @@
 import { Interactor } from "./components/EmulatedWebs/Interactor";
 import { Menu } from "./components/Menu";
+import { QuestionLoader } from "./components/QuestionLoader";
 
 function App() {
   return (
     <div>
-      <Interactor />
-      <Menu />
+      <QuestionLoader />
+      {/* <Interactor />
+      <Menu /> */}
       {/* <iframe
         id="inlineFrameExample"
         title="Inline Frame Example"
